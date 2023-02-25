@@ -56,9 +56,12 @@ function play() {
     cancion.rate(1);
 }
 
-function gotPoses(error,results) {
+function gotPoses(results) {
     if(results.length > 0) {
         console.log(results);
+        scoreRightWrist = results[0].pose.keypoints[10].score;
+        scoreLeftWrist = results[0].pose.keypoints[9].score;
+        
         leftX = results[0].pose.leftWrist.x;
         leftY = results[0].pose.leftWrist.y;
         console.log("leftX= "+leftX+ "leftY= "+leftY);
